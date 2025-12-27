@@ -1,3 +1,4 @@
+#include <sstream>
 #include "digit.h"
 
 using namespace digit;
@@ -27,4 +28,10 @@ int Digit::getValue() const {
     }
   }
   return 0;
+}
+
+std::string Digit::describe() const {
+  std::ostringstream out;
+  out << getData() << " (" << getValue() << ") has " << countOptions() << " options";
+  return out.str();
 }

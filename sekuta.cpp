@@ -7,7 +7,7 @@ using namespace digit;
 using namespace state;
 
 void printDigit(string name, Digit dig) {
-  cout << name << " " << dig.getData() << " (" << dig.getValue() << ") has " << dig.countOptions() << " options\n";
+  cout << name << " " << dig.describe() << "\n";
 }
 
 int main(int argc, char *argv[]) {

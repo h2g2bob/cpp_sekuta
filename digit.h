@@ -1,6 +1,8 @@
 #ifndef DIGIT_H
 #define DIGIT_H
 
+#include <iostream>
+
 namespace digit {
 
   #define MIN 1
@@ -17,6 +19,7 @@ namespace digit {
     int countOptions() const;
     int getData() const;
     int getValue() const;
+    std::string describe() const;
   };
 
 
