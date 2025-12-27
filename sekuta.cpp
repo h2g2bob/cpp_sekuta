@@ -26,4 +26,14 @@ int main(int argc, char *argv[]) {
 
   const State initState {};
   printState("initState", initState);
+
+  const Digit testArray[3] = {
+    digitFromSingleValue(9),
+    // via constructor, explicit type:
+    Digit {},
+    // via constructor, type implied:
+    {}};
+  printDigit("testArray[0]", testArray[0]);
+  printDigit("testArray[1]", testArray[1]);
+  printDigit("testArray[2]", testArray[2]);
 }
