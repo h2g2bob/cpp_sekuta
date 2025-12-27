@@ -1,11 +1,10 @@
 #include <iostream>
 #include "digit.h"
+#include "state.h"
 
 using namespace std;
 using namespace digit;
-
-// class State {
-//  a, b, c, d, e, f, g, h, i: int
+using namespace state;
 
 void printDigit(string name, Digit dig) {
   cout << name << " " << dig.getData() << " (" << dig.getValue() << ") has " << dig.countOptions() << " options\n";
