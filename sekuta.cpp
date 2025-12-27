@@ -10,6 +10,11 @@ void printDigit(string name, Digit dig) {
   cout << name << " " << dig.describe() << "\n";
 }
 
+void printState(string name, State state) {
+  cout << name << " " << state.describe() << "\n";
+}
+
+
 int main(int argc, char *argv[]) {
   cout << "Hello world\n";
 
@@ -20,5 +25,5 @@ int main(int argc, char *argv[]) {
   printDigit("digB", digB);
 
   const State initState {};
-  printDigit("initState.a", initState.a);
+  printState("initState", initState);
 }
