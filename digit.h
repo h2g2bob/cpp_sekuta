@@ -1,3 +1,6 @@
+#ifndef DIGIT_H
+#define DIGIT_H
+
 namespace digit {
 
   #define MIN 1
@@ -20,3 +23,5 @@ namespace digit {
   Digit digitFromSingleValue(int singleValue);
 
 }
+
+#endif

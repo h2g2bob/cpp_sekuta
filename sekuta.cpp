@@ -18,4 +18,7 @@ int main(int argc, char *argv[]) {
 
   const Digit digB {};
   printDigit("digB", digB);
+
+  const State initState {};
+  printDigit("initState.a", initState.a);
 }
