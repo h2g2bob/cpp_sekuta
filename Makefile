@@ -1,6 +1,4 @@
 all: sekuta
 
-sekuta: sekuta.cpp
-
-sekuta.cpp:
-	g++ sekuta.cpp -o sekuta
+sekuta: digit.cpp sekuta.cpp
+	g++ sekuta.cpp digit.cpp -o sekuta
