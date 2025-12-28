@@ -6,9 +6,11 @@
 
 namespace state {
 
+  #define GRIDSZ 3
+
   class State {
     public:
-      digit::Digit a, b, c, d, e, f, g, h, i;
+      digit::Digit digits[GRIDSZ][GRIDSZ];
 
       std::string describe() const;
   };
