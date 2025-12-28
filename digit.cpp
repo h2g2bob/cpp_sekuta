@@ -9,7 +9,7 @@ Digit digit::digitFromSingleValue(int singleValue){
 
 int Digit::countOptions() const {
   int options = 0;
-  for (int temp = data; temp; temp = temp >> 1) {
+  for (int temp = bitmask; temp; temp = temp >> 1) {
     if (temp & 0x1) {
       options ++;
     }
@@ -18,12 +18,12 @@ int Digit::countOptions() const {
 }
 
 int Digit::getData() const {
-  return data;
+  return bitmask;
 }
 
 int Digit::getValue() const {
   for (int i = MIN; i <= MAX; i++) {
-    if (data == 1 << i) {
+    if (bitmask == 1 << i) {
       return i;
     }
   }

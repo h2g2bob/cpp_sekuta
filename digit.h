@@ -10,11 +10,12 @@ namespace digit {
   #define ALL_OPTIONS 0b1111111110
 
   class Digit {
-    const int data;
 
   public:
-    Digit(): data{ALL_OPTIONS} {};
-    Digit(int data_): data {data_} {};
+    const int bitmask;
+
+    Digit(): bitmask{ALL_OPTIONS} {};
+    Digit(int bitmask_): bitmask {bitmask_} {};
 
     int countOptions() const;
     int getData() const;
