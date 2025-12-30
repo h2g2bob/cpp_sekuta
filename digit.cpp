@@ -32,6 +32,14 @@ int Digit::getValue() const {
 
 std::string Digit::describe() const {
   std::ostringstream out;
-  out << getData() << " (" << getValue() << ") has " << countOptions() << " options";
+  out << "[";
+  for (int i = MIN; i <= MAX; i++) {
+    if (bitmask & (1 << i)) {
+      out << i;
+    } else {
+      out << "-";
+    }
+  }
+  out << "]";
   return out.str();
 }

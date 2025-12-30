@@ -5,6 +5,11 @@ using namespace state;
 
 std::string State::describe() const {
   std::ostringstream out;
-  out << "State... 00=" << digits[0][0].describe() << " 01=" << digits[0][1].describe() << " ...";
+  out << "State";
+  for (int y = 0; y < GRIDSZ; y++) {
+    for (int x = 0; x < GRIDSZ; x++) {
+      out << " " << y << x << "=" << digits[y][x].describe();
+    }
+  }
   return out.str();
 }

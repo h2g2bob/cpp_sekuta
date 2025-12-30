@@ -10,6 +10,7 @@ namespace state {
 
   class State {
     public:
+      // digits[y][x]
       digit::Digit digits[GRIDSZ][GRIDSZ];
 
       std::string describe() const;
