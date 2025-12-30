@@ -21,7 +21,6 @@ std::string State::describe() const {
 void State::setSingleValue(int y, int x, int singleValue) {
   assert(y >= 0 && y < GRIDSZ);
   assert(x >= 0 && x < GRIDSZ);
-  // ...?
-  // Digit value = digitFromSingleValue(singleValue);
-  // digits[y][x] = value;
+  Digit value = digitFromSingleValue(singleValue);
+  digits[y][x] = value;
 }
