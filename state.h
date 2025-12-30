@@ -14,6 +14,8 @@ namespace state {
       digit::Digit digits[GRIDSZ][GRIDSZ];
 
       std::string describe() const;
+
+      void setSingleValue(int y, int x, int singleValue);
   };
 
 }
