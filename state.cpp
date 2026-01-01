@@ -18,9 +18,19 @@ std::string State::describe() const {
   return out.str();
 }
 
-void State::setSingleValue(int y, int x, int singleValue) {
+State State::setValue(const int y, const int x, const Digit newDigit) const {
   assert(y >= 0 && y < GRIDSZ);
   assert(x >= 0 && x < GRIDSZ);
-  Digit value = digitFromSingleValue(singleValue);
-  digits[y][x] = value;
+
+  State out {};
+
+  // the dumb way to copy all the values:
+  for (int iy = 0; iy < GRIDSZ; iy++) {
+    for (int ix = 0; ix < GRIDSZ; ix++) {
+      out.digits[iy][ix] = digits[iy][ix];
+    }
+  }
+  out.digits[y][x] = newDigit;
+
+  return out;
 }

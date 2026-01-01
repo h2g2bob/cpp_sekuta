@@ -37,7 +37,6 @@ int main(int argc, char *argv[]) {
   printDigit("testArray[1]", testArray[1]);
   printDigit("testArray[2]", testArray[2]);
 
-  State updatedState = initState;
-  updatedState.digits[1][1] = digA;
+  const State updatedState = initState.setValue(1, 1, digA);
   printState("updatedState", updatedState);
 }

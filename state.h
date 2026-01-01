@@ -15,7 +15,7 @@ namespace state {
 
       std::string describe() const;
 
-      void setSingleValue(int y, int x, int singleValue);
+      State setValue(const int y, const int x, const digit::Digit newDigit) const;
   };
 
 }
