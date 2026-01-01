@@ -16,6 +16,7 @@ namespace state {
       std::string describe() const;
 
       State setValue(const int y, const int x, const digit::Digit newDigit) const;
+      bool isValid() const;
   };
 
 }

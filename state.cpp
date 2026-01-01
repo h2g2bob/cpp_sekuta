@@ -8,7 +8,11 @@ using digit::digitFromSingleValue;
 
 std::string State::describe() const {
   std::ostringstream out;
-  out << "State:\n";
+  out << "State";
+  if (!this->isValid()) {
+    out << " invalid";
+  }
+  out << ":\n";
   for (int y = 0; y < GRIDSZ; y++) {
     for (int x = 0; x < GRIDSZ; x++) {
       out << " " << digits[y][x].describe();
@@ -26,4 +30,15 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
   out.digits[y][x] = newDigit;
 
   return out;
+}
+
+bool State::isValid() const {
+  for (int y = 0; y < GRIDSZ; y++) {
+    for (int x = 0; x < GRIDSZ; x++) {
+      if (digits[y][x].bitmask == 0) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
