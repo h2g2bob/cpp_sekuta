@@ -36,4 +36,8 @@ int main(int argc, char *argv[]) {
   printDigit("testArray[0]", testArray[0]);
   printDigit("testArray[1]", testArray[1]);
   printDigit("testArray[2]", testArray[2]);
+
+  State updatedState = initState;
+  updatedState.digits[1][1] = digA;
+  printState("updatedState", updatedState);
 }
