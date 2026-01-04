@@ -33,11 +33,9 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
 }
 
 bool State::isValid() const {
-  for (int y = 0; y < GRIDSZ; y++) {
-    for (int x = 0; x < GRIDSZ; x++) {
-      if (digits[INDEX(y, x)].bitmask == 0) {
-        return false;
-      }
+  for (auto const digit : digits) {
+    if (digit.bitmask == 0) {
+      return false;
     }
   }
   return true;
