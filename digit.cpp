@@ -21,6 +21,24 @@ int Digit::getValue() const {
   return 0;
 }
 
+int Digit::min() const {
+  for (int i = MIN; i <= MAX; i++) {
+    if (bitmask[i]) {
+      return i;
+    }
+  }
+  return 0;
+}
+
+int Digit::max() const {
+  for (int i = MAX; i >= MIN; i--) {
+    if (bitmask[i]) {
+      return i;
+    }
+  }
+  return 0;
+}
+
 std::vector<int> Digit::possibleValues() const {
   std::vector<int> out {};
   for (int i = MIN; i <= MAX; i++) {

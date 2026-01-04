@@ -18,6 +18,8 @@ namespace digit {
 
     int countOptions() const;
     int getValue() const;
+    int min() const;
+    int max() const;
     std::string describe() const;
     std::vector<int> possibleValues() const;
   };

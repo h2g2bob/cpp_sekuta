@@ -14,9 +14,35 @@ void printState(string name, const State state) {
   cout << name << " " << state.describe() << "\n";
 }
 
+bool constraintOk(const State state, int y1, int y2, int x1, int x2, int expectValue) {
+  int max = \
+    state.getDigit(y1, x1).max() *
+    state.getDigit(y1, x2).max() *
+    state.getDigit(y2, x1).max() *
+    state.getDigit(y2, x2).max();
+  int min = \
+    state.getDigit(y1, x1).min() *
+    state.getDigit(y1, x2).min() *
+    state.getDigit(y2, x1).min() *
+    state.getDigit(y2, x2).min();
+  return (min <= expectValue) && (max >= expectValue);
+}
+
+bool constraintsOk(const State state) {
+  return \
+    constraintOk(state, 0, 1, 0, 1, 1*2*4*5) &&
+    constraintOk(state, 0, 1, 1, 2, 2*3*5*6) &&
+    constraintOk(state, 1, 2, 0, 1, 4*5*7*9) &&
+    constraintOk(state, 1, 2, 1, 2, 5*6*9*8);
+}
+
 void solve(const State state) {
   printState("solve", state);
   if (!state.isValid()) {
+    return;
+  }
+
+  if (!constraintsOk(state)) {
     return;
   }
 
