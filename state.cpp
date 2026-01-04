@@ -15,7 +15,7 @@ std::string State::describe() const {
   out << ":\n";
   for (int y = 0; y < GRIDSZ; y++) {
     for (int x = 0; x < GRIDSZ; x++) {
-      out << " " << digits[y][x].describe();
+      out << " " << digits[INDEX(y, x)].describe();
     }
     out << "\n";
   }
@@ -27,7 +27,7 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
   assert(x >= 0 && x < GRIDSZ);
 
   State out = *this;
-  out.digits[y][x] = newDigit;
+  out.digits[INDEX(y, x)] = newDigit;
 
   return out;
 }
@@ -35,7 +35,7 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
 bool State::isValid() const {
   for (int y = 0; y < GRIDSZ; y++) {
     for (int x = 0; x < GRIDSZ; x++) {
-      if (digits[y][x].bitmask == 0) {
+      if (digits[INDEX(y, x)].bitmask == 0) {
         return false;
       }
     }
