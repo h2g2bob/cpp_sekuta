@@ -1,3 +1,4 @@
+#include <array>
 #include <cassert>
 #include <sstream>
 #include "state.h"
@@ -22,12 +23,29 @@ std::string State::describe() const {
   return out.str();
 }
 
+void unsetFromOtherSquares(State &state, Digit newDigit, std::size_t newDigitIndex) {
+  for (std::size_t i = 0; i < state.digits.size(); i++) {
+    if (i != newDigitIndex) {
+      if ((state.digits[i].bitmask & newDigit.bitmask) != 0) {
+        state.digits[i].bitmask &= ~newDigit.bitmask;
+        if (state.digits[i].bitmask.count() == 1) {
+          unsetFromOtherSquares(state, state.digits[i], i);
+        }
+      }
+    }
+  }
+}
+
 State State::setValue(const int y, const int x, const Digit newDigit) const {
   assert(y >= 0 && y < GRIDSZ);
   assert(x >= 0 && x < GRIDSZ);
 
   State out = *this;
   out.digits[INDEX(y, x)] = newDigit;
+
+  if (newDigit.countOptions() == 1) {
+    unsetFromOtherSquares(out, newDigit, INDEX(y, x));
+  }
 
   return out;
 }
