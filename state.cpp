@@ -36,7 +36,7 @@ void unsetFromOtherSquares(State &state, Digit newDigit, std::size_t newDigitInd
   }
 }
 
-State State::setValue(const int y, const int x, const Digit newDigit) const {
+State State::setDigit(const int y, const int x, const Digit newDigit) const {
   assert(y >= 0 && y < GRIDSZ);
   assert(x >= 0 && x < GRIDSZ);
 

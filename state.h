@@ -18,7 +18,7 @@ namespace state {
       std::string describe() const;
 
       digit::Digit getDigit(const int y, const int x) const;
-      State setValue(const int y, const int x, const digit::Digit newDigit) const;
+      State setDigit(const int y, const int x, const digit::Digit newDigit) const;
       bool isValid() const;
   };
 
