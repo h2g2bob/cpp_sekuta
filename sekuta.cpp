@@ -6,11 +6,11 @@ using namespace std;
 using namespace digit;
 using namespace state;
 
-void printDigit(string name, Digit dig) {
+void printDigit(string name, const Digit dig) {
   cout << name << " " << dig.describe() << "\n";
 }
 
-void printState(string name, State state) {
+void printState(string name, const State state) {
   cout << name << " " << state.describe() << "\n";
 }
 
