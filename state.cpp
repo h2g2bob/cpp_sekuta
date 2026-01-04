@@ -50,6 +50,12 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
   return out;
 }
 
+digit::Digit State::getDigit(const int y, const int x) const {
+  assert(y >= 0 && y < GRIDSZ);
+  assert(x >= 0 && x < GRIDSZ);
+  return digits[INDEX(y, x)];
+}
+
 bool State::isValid() const {
   // no numbers possible for one square
   for (auto const digit : digits) {
