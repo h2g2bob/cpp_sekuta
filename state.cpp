@@ -33,10 +33,21 @@ State State::setValue(const int y, const int x, const Digit newDigit) const {
 }
 
 bool State::isValid() const {
+  // no numbers possible for one square
   for (auto const digit : digits) {
     if (digit.bitmask == 0) {
       return false;
     }
   }
+
+  // a number has no square it can fit into
+  digit::Digit possible_bitmasks {0};
+  for (auto const digit : digits) {
+    possible_bitmasks.bitmask |= digit.bitmask;
+  }
+  if (possible_bitmasks.bitmask != ALL_OPTIONS) {
+    return false;
+  }
+
   return true;
 }

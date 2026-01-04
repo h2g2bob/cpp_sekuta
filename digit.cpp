@@ -8,17 +8,7 @@ Digit digit::digitFromSingleValue(int singleValue){
 }
 
 int Digit::countOptions() const {
-  int options = 0;
-  for (int temp = bitmask; temp; temp = temp >> 1) {
-    if (temp & 0x1) {
-      options ++;
-    }
-  }
-  return options;
-}
-
-int Digit::getData() const {
-  return bitmask;
+  return bitmask.count();
 }
 
 int Digit::getValue() const {
@@ -34,7 +24,7 @@ std::string Digit::describe() const {
   std::ostringstream out;
   out << "[";
   for (int i = MIN; i <= MAX; i++) {
-    if (bitmask & (1 << i)) {
+    if (bitmask[i]) {
       out << i;
     } else {
       out << "-";

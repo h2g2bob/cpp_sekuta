@@ -1,6 +1,7 @@
 #ifndef DIGIT_H
 #define DIGIT_H
 
+#include <bitset>
 #include <iostream>
 
 namespace digit {
@@ -12,10 +13,9 @@ namespace digit {
   class Digit {
 
   public:
-    int bitmask = ALL_OPTIONS;
+    std::bitset<MAX+1>bitmask = ALL_OPTIONS;
 
     int countOptions() const;
-    int getData() const;
     int getValue() const;
     std::string describe() const;
   };
