@@ -16,33 +16,37 @@ void printState(string name, const State state) {
 
 bool constraintOk(const State state, int y1, int y2, int x1, int x2, int expectValue) {
   int max = \
-    state.getDigit(y1, x1).max() *
-    state.getDigit(y1, x2).max() *
-    state.getDigit(y2, x1).max() *
+    state.getDigit(y1, x1).max() +
+    state.getDigit(y1, x2).max() +
+    state.getDigit(y2, x1).max() +
     state.getDigit(y2, x2).max();
   int min = \
-    state.getDigit(y1, x1).min() *
-    state.getDigit(y1, x2).min() *
-    state.getDigit(y2, x1).min() *
+    state.getDigit(y1, x1).min() +
+    state.getDigit(y1, x2).min() +
+    state.getDigit(y2, x1).min() +
     state.getDigit(y2, x2).min();
   return (min <= expectValue) && (max >= expectValue);
 }
 
 bool constraintsOk(const State state) {
   return \
-    constraintOk(state, 0, 1, 0, 1, 1*2*4*5) &&
-    constraintOk(state, 0, 1, 1, 2, 2*3*5*6) &&
-    constraintOk(state, 1, 2, 0, 1, 4*5*7*9) &&
-    constraintOk(state, 1, 2, 1, 2, 5*6*9*8);
+    constraintOk(state, 0, 1, 0, 1, 27) &&
+    constraintOk(state, 0, 1, 1, 2, 16) &&
+    constraintOk(state, 1, 2, 0, 1, 28) &&
+    constraintOk(state, 1, 2, 1, 2, 17);
 }
 
 void solve(const State state) {
-  printState("solve", state);
   if (!state.isValid()) {
     return;
   }
 
   if (!constraintsOk(state)) {
+    return;
+  }
+
+  if (state.solved()) {
+    printState("solved", state);
     return;
   }
 
@@ -87,13 +91,9 @@ int main(int argc, char *argv[]) {
   const State badState = initState.setDigit(1, 1, Digit {0});
   printState("badState", badState);
 
-  const State testState = initState \
-    .setDigit(0, 0, digitFromSingleValue(1)) \
-    .setDigit(0, 1, digitFromSingleValue(2)) \
-    .setDigit(0, 2, digitFromSingleValue(3)) \
-    .setDigit(1, 0, digitFromSingleValue(4)) \
-    .setDigit(1, 1, digitFromSingleValue(5)) \
-    .setDigit(1, 2, digitFromSingleValue(6));
+  State testState = initState \
+    .setDigit(1, 1, digitFromSingleValue(8)) \
+    .setDigit(2, 2, digitFromSingleValue(2));
   cout << "\nSolve\n";
   solve(testState);
 }

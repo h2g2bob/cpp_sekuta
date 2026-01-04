@@ -20,6 +20,7 @@ namespace state {
       digit::Digit getDigit(const int y, const int x) const;
       State setDigit(const int y, const int x, const digit::Digit newDigit) const;
       bool isValid() const;
+      bool solved() const;
   };
 
 }

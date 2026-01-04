@@ -56,6 +56,15 @@ digit::Digit State::getDigit(const int y, const int x) const {
   return digits[INDEX(y, x)];
 }
 
+bool State::solved() const {
+  for (auto const digit : digits) {
+    if (digit.countOptions() > 1) {
+      return false;
+    }
+  }
+  return true;
+}
+
 bool State::isValid() const {
   // no numbers possible for one square
   for (auto const digit : digits) {
