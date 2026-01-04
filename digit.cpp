@@ -1,4 +1,5 @@
 #include <sstream>
+#include <vector>
 #include "digit.h"
 
 using namespace digit;
@@ -18,6 +19,16 @@ int Digit::getValue() const {
     }
   }
   return 0;
+}
+
+std::vector<int> Digit::possibleValues() const {
+  std::vector<int> out {};
+  for (int i = MIN; i <= MAX; i++) {
+    if (bitmask[i]) {
+      out.push_back(i);
+    }
+  }
+  return out;
 }
 
 std::string Digit::describe() const {

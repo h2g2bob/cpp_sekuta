@@ -3,6 +3,7 @@
 
 #include <bitset>
 #include <iostream>
+#include <vector>
 
 namespace digit {
 
@@ -18,6 +19,7 @@ namespace digit {
     int countOptions() const;
     int getValue() const;
     std::string describe() const;
+    std::vector<int> possibleValues() const;
   };
 
 
